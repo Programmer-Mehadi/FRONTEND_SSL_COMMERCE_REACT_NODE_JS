@@ -5,7 +5,7 @@ import SubsciptionsSection from "./components/SubsciptionsSection"
 
 function App() {
   return (
-    <section className="min-h-screen w-full p-5 bg-gray-100">
+    <section className="min-h-screen w-full p-5 px-0 bg-gray-100">
       <PlansSection />
       <SubsciptionsSection />
     </section>
