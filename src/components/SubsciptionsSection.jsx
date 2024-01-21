@@ -29,21 +29,23 @@ export default function SubsciptionsSection() {
 
   return (
     <div className="bg-gray-100 p-8">
-      <div className="container mx-auto bg-white p-4 rounded shadow-md flex justify-between gap-4 flex-wrap">
-        <h1 className="text-2xl font-bold mb-6">Subscription Plans</h1>
-        <input
-          type="text"
-          placeholder="Search"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          value={searchTerm}
-          className="mb-6 border border-slate-300 rounded py-1 px-4"
-        />
+      <div className="container mx-auto bg-white p-4 rounded shadow-md">
+        <div className="flex justify-between gap-4 flex-wrap">
+          <h1 className="text-2xl font-bold mb-6">Subscription Plans</h1>
+          <input
+            type="text"
+            placeholder="Search"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+            className="mb-6 border border-slate-300 rounded py-1 px-4"
+          />
+        </div>
         {orders === null ? (
-          <h1>Loading...</h1>
+          <h1 className="flex-1">Loading...</h1>
         ) : (
           <>
             {orders.length > 0 ? (
-              <div className="w-full overflow-x-auto">
+              <div className="max-h-[800px] w-full overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead>
                     <tr>

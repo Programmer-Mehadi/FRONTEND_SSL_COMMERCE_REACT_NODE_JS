@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 
 export default function PlansSection() {
-  const [plans, setPlans] = useState({})
+  const [plans, setPlans] = useState(null)
   const [showPlanType, setShowPlanType] = useState("monthly")
   const userdata = {
     name: "Muhammad Mehadi",
@@ -11,7 +11,9 @@ export default function PlansSection() {
     phoneNumber: "+8801800000000",
   }
   async function fetchData() {
-    const res = await fetch("http://localhost:5500/plans")
+    const res = await fetch(
+      `${import.meta.env.VITE_REACT_APP_BACKEND_SERVER}/plans`
+    )
     const data = await res.json()
     if (data.success) {
       setPlans(data?.data)
@@ -65,6 +67,9 @@ export default function PlansSection() {
           Yearly
         </button>
       </div>
+      {plans === null && (
+        <p className="text-center text-xl text-gray-500">Loading...</p>
+      )}
       {showPlanType === "monthly" ? (
         <MonthlySection plans={plans} onSubscribe={onSubscribe} />
       ) : (
